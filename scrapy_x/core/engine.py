@@ -1,3 +1,5 @@
+from _datetime import datetime
+
 from scrapy_x.core.scheduler import Scheduler
 from scrapy_x.core.downloader import Downloader
 from scrapy_x.core.pipeline import Pipeline
@@ -7,6 +9,7 @@ from scrapy_x.http.request import Request
 
 from scrapy_x.middlewares.spider_middlewares import SpiderMiddleware
 from scrapy_x.middlewares.downloader_middlewares import DownloaderMiddleware
+from scrapy_x.utils.log import logger
 
 
 class Engine():
@@ -20,7 +23,14 @@ class Engine():
         self.downloader_mid = DownloaderMiddleware()  # 初始化下载器中间件对象
 
     def start(self):
+        '''程序入口'''
+        start = datetime.now()  # 起始时间
+        logger.info("开始运行时间：%s" % start)  # 使用日志记录起始运行时间
         self._start_engine()
+        stop = datetime.now()  # 结束时间
+        logger.info("开始运行时间：%s" % stop)  # 使用日志记录结束运行时间
+        logger.info("耗时：%.2f" % (stop - start).total_seconds())  # 使用日志记录运行耗时
+
 
     def _start_engine(self):
         """引擎的内部逻辑"""
