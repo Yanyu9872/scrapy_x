@@ -1,11 +1,13 @@
 import sys
 import logging
 
+from scrapy_x.conf import settings
+
 # 默认的配置
-DEFAULT_LOG_LEVEL = logging.INFO  # 默认等级
-DEFAULT_LOG_FMT = '%(asctime)s %(filename)s [line:%(lineno)d] %(levelname)s: %(message)s'  # 默认日志格式
-DEFUALT_LOG_DATEFMT = '%Y-%m-%d %H:%M:%S'  # 默认时间格式
-DEFAULT_LOG_FILENAME = 'log.log'  # 默认日志文件名称
+DEFAULT_LOG_LEVEL = settings.DEFAULT_LOG_LEVEL  # 默认等级
+DEFAULT_LOG_FMT = settings.DEFAULT_LOG_FMT  # 默认日志格式
+DEFUALT_LOG_DATEFMT = settings.DEFUALT_LOG_DATEFMT  # 默认时间格式
+DEFAULT_LOG_FILENAME = settings.DEFAULT_LOG_FILENAME  # 默认日志文件名称
 
 
 class Logger(object):
