@@ -41,7 +41,7 @@ class Engine():
 
             # 6.1 如果是请求对象，那么就再交给调度器
             self.scheduler.add_request(result)
-
+        else:
             # 6.2 否则，就交给管道处理
             self.pipeline.process_item(result)
 
